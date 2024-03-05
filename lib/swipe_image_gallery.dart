@@ -313,11 +313,14 @@ class SwipeImageGallery {
                 ),
               ),
               if (overlayController != null)
-                GalleryOverlay(
-                  overlayController: overlayController!,
-                  showOverlay: showOverlay,
-                  opacity: _opacity,
-                  initialData: initialOverlay,
+                IgnorePointer(
+                  ignoring: !showOverlay,
+                  child: GalleryOverlay(
+                    overlayController: overlayController!,
+                    showOverlay: showOverlay,
+                    opacity: _opacity,
+                    initialData: initialOverlay,
+                  ),
                 ),
             ],
           ),
